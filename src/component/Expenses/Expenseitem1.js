@@ -3,6 +3,8 @@ import React from 'react'
 import ExpenseDate from './ExpenseDate'
 import ExpenseDetail from './ExpenseDetail'
 import "./Expenseitem1.css"
+import Card from '../UI/Card'
+
 
 export default function Expenseitem1(props) {
   
