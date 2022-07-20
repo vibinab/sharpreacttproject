@@ -1,7 +1,7 @@
 import React , {useState} from 'react'
 import "./ExpressForm1.css";
 
-export default function ExpressForm1() {
+export default function ExpressForm1(props) {
 
 const [enteredTitle, setenteredTitle]=useState("");
 
@@ -72,6 +72,12 @@ const submithandler=(event) =>{
 
     console.log(expenseData)
 
+    props.onSaveExpenseData(expenseData);
+    setenteredTitle('')
+    setenteredAmount('')
+    setenteredDate('')
+
+
 }
 
 
@@ -81,15 +87,25 @@ const submithandler=(event) =>{
     <div className='new-expense__controls'>
         <div className='new-expense__control'>
             <label>Title</label>
-            <input type="text" onChange={titlechangehandler} />
+            <input type="text" 
+            value={enteredTitle}
+             onChange={titlechangehandler} />
         </div>
         <div className='new-expense__control'>
             <label>Amount</label>
-            <input type="number"  min="0.01" step="0.01" onChange={amountchangehandler} />
+            <input type="number"  
+            min="0.01" 
+            step="0.01" 
+            value={enteredAmount}
+            onChange={amountchangehandler} />
         </div>
         <div className='new-expense__control'>
             <label>Date</label>
-            <input type="date"  min="2022-01-01" max="2022-12-30"  onChange={datechangehandler}/>
+            <input type="date"  
+            min="2022-01-01"
+             max="2022-12-30"  
+             value={enteredDate}
+             onChange={datechangehandler}/>
         </div>
         <div className='new-expense__actioins'>
            <button type="submit">Add expense</button>
