@@ -9,26 +9,75 @@ const [enteredAmount, setenteredAmount]= useState(" ");
 
 const [enteredDate, setenteredDate]=useState(" ");
 
+// const  [userInput, setuserInput] = useState({
+//     enteredTitle:"",
+//     enteredAmount:"",
+//     enteredDate:""
+// })
 
 
  const titlechangehandler=(event)=>{
-    console.log(enteredTitle)
-setenteredTitle(event.target.value)
+    setenteredTitle(event.target.value)
+    // setuserInput({
+    //     ...userInput,
+    //     enteredTitle:event.target.value,
+    // })
+
+    // setuserInput((prevState)=> {
+    //     return {...prevState, enteredTitle:event.target.value}
+    // })
 
  }
 
 
  const amountchangehandler=(event)=> {
-setenteredAmount(event.target.value)
+
+    setenteredAmount(event.target.value)
+// setuserInput({
+//     ...userInput,
+//     enteredAmount:event.target.value
+// })
+
+// setuserInput((prevState)=> {
+//     return {...prevState, enteredAmount:event.target.value}
+// })
+
+
+
  }
 
 
  const datechangehandler=(event)=> {
+
     setenteredDate(event.target.value)
- }
+    // setuserInput({
+    //     ...userInput,
+    //     enteredDate:event.target.value
+    // })
+
+//    setuserInput((prevState)=> {
+//         return {...prevState, enteredDate:event.target.value}
+//    })
+
+} 
+
+const submithandler=(event) =>{
+    event.preventDefault();
+
+    const expenseData= {
+        title:enteredTitle,
+        amount:enteredAmount,
+        date: new Date(enteredDate)
+    }
+
+    console.log(expenseData)
+
+}
+
+
 
   return (
-<form>
+<form onSubmit={submithandler}>
     <div className='new-expense__controls'>
         <div className='new-expense__control'>
             <label>Title</label>
