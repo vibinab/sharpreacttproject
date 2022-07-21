@@ -108,6 +108,7 @@ const submithandler=(event) =>{
              onChange={datechangehandler}/>
         </div>
         <div className='new-expense__actioins'>
+           <button type="button" onClick={props. onCancel}>Cancel</button>
            <button type="submit">Add expense</button>
         </div>
     </div>
