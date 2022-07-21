@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import ExpensesChart from './ExpensesChart';
 import Expenseitem1 from './Expenseitem1';
 import Card from '../UI/Card';
 import './Expenses.css';
@@ -29,7 +29,7 @@ export default function Expenses(props) {
         onChangeFilter={filterChangeHandler}
 
         />
-        
+        <ExpensesChart expenses={filteredExpenses}/>
 
         { filteredExpenses.length===0? (
           <p>No expenses found</p>
