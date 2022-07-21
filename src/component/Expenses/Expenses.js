@@ -21,7 +21,15 @@ export default function Expenses(props) {
   return (
     <div className="expenses">
         <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-        <Expenseitem1 
+
+        {
+          props.items.map((expense)=> {
+            return (<Expenseitem1 key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}/>
+            )
+          })
+        }
+
+        {/* <Expenseitem1 
         title={props.items[0].title}
         amount={props.items[0].amount} 
         date={props.items[0].date}
@@ -49,7 +57,7 @@ export default function Expenses(props) {
         amount={props.items[3].amount} 
         date={props.items[3].date}
         location={props.items[3].location}
-          />
+          /> */}
     </div>
   )
 }
