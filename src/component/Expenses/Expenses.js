@@ -24,14 +24,30 @@ export default function Expenses(props) {
 
   return (
     <div className="expenses">
-        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+        <ExpensesFilter 
+        selected={filteredYear} 
+        onChangeFilter={filterChangeHandler}
 
-        {
+        />
+        
+
+        { filteredExpenses.length===0? (
+          <p>No expenses found</p>
+        ):(
+          
           filteredExpenses.map((expense)=> {
-            return (<Expenseitem1 key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}/>
+            return (
+              <Expenseitem1 key={expense.id} 
+              title={expense.title} 
+              amount={expense.amount} 
+              date={expense.date}
+                
+              />
             )
           })
-        }
+        )}
+
+        { filteredExpenses.length===1 && <p>Only single Expense here. Please add more..." </p>}
 
         {/* <Expenseitem1 
         title={props.items[0].title}
